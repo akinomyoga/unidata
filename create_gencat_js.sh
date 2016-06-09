@@ -1,10 +1,11 @@
 #!/bin/bash
 
-output=gencat.js
+output=out/gencat.js
+
 {
   cat <<EOF
 var GetUnicodeGeneralCategory=(function(){
-  // from UNIDATA/UnicodeData.txt $(date  -r UNIDATA/UnicodeData.txt +'%Y-%m-%d %H:%M:%S')
+  // from UCD/UnicodeData.txt $(date  -r UCD/UnicodeData.txt +'%Y-%m-%d %H:%M:%S')
   var table=[
 EOF
   awk '
@@ -20,7 +21,7 @@ EOF
     printf("%s","[" strtonum("0x" $1) ",\"" $3 "\"]");
   }
   END{print "";}
-' GenCatTable.txt
+' out/GenCatTable.txt
 
   cat <<EOF
   ];

@@ -1,4 +1,4 @@
 # -*- mode: makefile-gmake -*-
 
-GenCatTable.txt
-gencat.js
+/out
+/UCD
